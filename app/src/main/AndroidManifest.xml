@@ -16,11 +16,14 @@
         android:theme="@style/Theme.WeatherApplication"
         tools:targetApi="31">
         <activity
+            android:name=".LocationActivity"
+            android:exported="false" />
+        <activity
             android:name=".WeatherDetailsActivity"
             android:exported="false" />
         <activity
             android:name=".WidgetsActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

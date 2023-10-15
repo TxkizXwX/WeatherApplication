@@ -23,6 +23,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val intent = Intent(this, LocationActivity::class.java)
+        val extras = getIntent().extras
+        if (extras != null) {
+            val selectedLocation = intent.getStringExtra("selectedLocation")
+            binding.sity.text = selectedLocation
+        }
+
         weatherList = ArrayList()
         weatherList.add(WeatherModel(R.drawable.ic_moon_cloud_mid_rain, "12 AM", 30, 12))
         weatherList.add(WeatherModel(R.drawable.ic_sun_cloud_angled_rain, "Now", 10, 15))
@@ -76,8 +83,12 @@ class MainActivity : AppCompatActivity() {
             binding.underlineWeekly.visibility = View.INVISIBLE
         }
 
-        binding.rightBtn.setOnClickListener {
+        binding.widgetsBtn.setOnClickListener {
             val intent = Intent(this, WidgetsActivity::class.java)
+            startActivity(intent)
+        }
+        binding.locationBtn.setOnClickListener {
+            val intent = Intent(this, LocationActivity::class.java)
             startActivity(intent)
         }
 
