@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherapplication.Adapters.WeatherAdapter
+import com.example.weatherapplication.Fragments.WeatherDetailsFragment
 import com.example.weatherapplication.Models.WeatherModel
 import com.example.weatherapplication.databinding.ActivityMainBinding
 
@@ -74,9 +75,15 @@ class MainActivity : AppCompatActivity() {
             binding.underlineHourly.visibility = View.VISIBLE
             binding.underlineWeekly.visibility = View.INVISIBLE
         }
+
         binding.rightBtn.setOnClickListener {
             val intent = Intent(this, WidgetsActivity::class.java)
             startActivity(intent)
+        }
+
+        binding.detailsBtn.setOnClickListener {
+            val weatherDetailsFragment = WeatherDetailsFragment()
+            weatherDetailsFragment.show(supportFragmentManager, "Test")
         }
     }
 }
